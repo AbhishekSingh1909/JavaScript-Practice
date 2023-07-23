@@ -5,14 +5,14 @@ setTimeout(() => {
 Promise.resolve().then(() => console.log(3));
 
 const print = new Promise((resolve, rejet) => {
-  setTimeout(() => {
-    resolve("promised resolved");
-  });
+  resolve("promised resolved");
 });
 
 Promise.resolve().then(() => setTimeout(() => console.log(4)));
 print.then((message) => {
-  console.log(message);
+  setTimeout(() => {
+    console.log(message);
+  });
 });
 
 Promise.resolve().then(() => console.log(5));
